@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 80px 40px;
+    /* Un poco más de padding lateral para enmarcar el contenido */
+}
+
+.layout-container {
+    max-width: 1200px;
+    /* Contenedor un poco más ancho para esta imagen grande */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Separación entre el texto y la imagen grande */
+}
+
+/* --- HEADER SUPERIOR DIVIDIDO --- */
+.top-section-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Alineados arriba */
+    gap: 40px;
+}
+
+.title-area {
+    flex: 1;
+    /* Mitad de la pantalla para el título */
+}
+
+.huge-title {
+    font-size: 4rem;
+    /* Título bastante grande según la imagen */
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: -1px;
+    /* Para juntar un poquito las letras como en el diseño moderno */
+}
+
+.content-area {
+    flex: 1;
+    /* La otra mitad para el texto y botón */
+    max-width: 500px;
+    /* Limitamos el ancho del texto para que no se estire demasiado */
+}
+
+.descriptive-paragraph {
+    font-size: 1.15rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.cta-button-dark {
+    display: inline-block;
+    background-color: #262626;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cta-button-dark:hover {
+    background-color: #000000;
+}
+
+/* --- IMAGEN FULL WIDTH --- */
+.full-width-banner {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Para que la imagen respete los bordes redondeados del contenedor */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Sombra muy sutil */
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    /* Limita la altura para que no ocupe toda la pantalla verticalmente */
+    object-fit: cover;
+    display: block;
+    /* Quita el espacio blanco debajo de las imágenes por defecto en HTML */
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 850px) {
+    .top-section-split {
+        flex-direction: column;
+    }
+
+    .huge-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .content-area {
+        max-width: 100%;
+    }
+}

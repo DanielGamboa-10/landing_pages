@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    /* Quitamos el padding vertical para permitir que fluya más natural si la pantalla es alta */
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+.elegant-gallery-view {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    /* Separación amplia entre la parte de arriba y la caja negra */
+}
+
+/* --- BLOQUE SUPERIOR --- */
+.top-hero-segment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Alineamos al centro verticalmente los textos e imágenes */
+    gap: 40px;
+}
+
+/* Izquierda: Textos */
+.hero-left-col {
+    flex: 1;
+    max-width: 500px;
+}
+
+.stark-title {
+    font-size: 3.5rem;
+    color: #222222;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.neutral-paragraph {
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.solid-pill-btn {
+    display: inline-block;
+    background-color: #292929;
+    /* Negro ligeramente suave */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 35px;
+    border-radius: 30px;
+    /* Píldora */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.solid-pill-btn:hover {
+    background-color: #000000;
+}
+
+/* Derecha: Imágenes en Arco */
+.hero-right-col {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* Para empujar las fotos hacia la derecha */
+}
+
+.arch-composition {
+    position: relative;
+    width: 450px;
+    height: 500px;
+    /* Altura suficiente para el cruce */
+}
+
+/* Ambas imágenes con base de diseño en herradura/arco */
+.arch-img-back,
+.arch-img-front {
+    position: absolute;
+    width: 280px;
+    height: 380px;
+    object-fit: cover;
+    /* El borde superior en arco exagerado (200px) y base recta */
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* La imagen de atrás (oscura) */
+.arch-img-back {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Filtro para simular la textura blanco y negro oscura de la foto original */
+    filter: grayscale(100%) brightness(0.7);
+}
+
+/* La imagen de frente (clara) */
+.arch-img-front {
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    /* Filtro para hacerla casi blanca y gris clarita */
+    filter: grayscale(100%) brightness(1.2);
+    /* Le agregamos una sombrita muy sutil blanca/gris para que se despegue de la de atrás */
+    box-shadow: -10px -10px 30px rgba(255, 255, 255, 1);
+}
+
+
+/* --- BLOQUE INFERIOR (CAJA ANCHA NEGRA) --- */
+.footer-dark-strip {
+    background-color: #2A2A2A;
+    /* Gris carbón/negro mate */
+    border-radius: 30px;
+    /* Bordes redondeados del bloque completo */
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.strip-feature {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.strip-feature i {
+    color: #888888;
+    /* Nube gris clarito */
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    /* Espacio extra debajo del ícono */
+}
+
+.feature-heading {
+    font-size: 1.3rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.feature-detail {
+    font-size: 0.95rem;
+    color: #A0A0A0;
+    /* Gris medio para el texto descriptivo */
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1000px) {
+    .top-hero-segment {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-right-col {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .footer-dark-strip {
+        flex-direction: column;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        align-items: center;
+        /* Centrar contenidos */
+    }
+
+    .stark-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    /* Ajustamos el tamaño del collage para móviles chicos */
+    .arch-composition {
+        width: 100%;
+        max-width: 350px;
+        height: 400px;
+    }
+
+    .arch-img-back,
+    .arch-img-front {
+        width: 200px;
+        height: 280px;
+    }
+}

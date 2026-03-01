@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 80px 40px;
+}
+
+.projects-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    /* Separación entre el título y las columnas */
+}
+
+/* --- TÍTULO SUPERIOR --- */
+.section-title-wrap {
+    width: 100%;
+    /* El título en la imagen no está centrado, está alineado a la izquierda */
+    text-align: left;
+}
+
+.massive-heading {
+    font-size: 4rem;
+    color: #222222;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* --- GRID DE 3 COLUMNAS --- */
+.three-col-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    /* Espacio entre las tarjetas */
+}
+
+.showcase-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Espacio entre el texto y la imagen de cada tarjeta */
+}
+
+/* Contenido de texto de la tarjeta */
+.card-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step-identifier {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #999999;
+}
+
+.step-description {
+    font-size: 1.05rem;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* Contenedor de la imagen */
+.card-visual {
+    width: 100%;
+}
+
+.visual-img {
+    width: 100%;
+    aspect-ratio: 1.1 / 1;
+    /* Para hacerlas ligeramente horizontales como en la imagen */
+    object-fit: cover;
+    display: block;
+    /* En este diseño las imágenes no tienen bordes redondeados (o son imperceptibles) */
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 950px) {
+    .three-col-showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .massive-heading {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .three-col-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 40px 20px;
+    }
+}

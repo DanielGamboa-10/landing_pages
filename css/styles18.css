@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.fashion-zine-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.zine-masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.header-decor-left,
+.header-decor-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sine-waves-icon {
+    width: 120px;
+    height: 40px;
+}
+
+.circling-text-svg {
+    width: 130px;
+    height: 130px;
+    animation: spinSlow 20s linear infinite;
+}
+
+.circling-text-svg text {
+    font-family: 'Playfair Display', serif;
+    font-size: 13.5px;
+    fill: #444;
+    letter-spacing: 3px;
+}
+
+@keyframes spinSlow {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.header-core {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+}
+
+.statement-hd {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.tagline-txt {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.btn-dark-capsule {
+    display: inline-block;
+    background-color: #262626;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-dark-capsule:hover {
+    background-color: #000;
+}
+
+.masonry-collage-band {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+    height: 700px;
+}
+
+.col-stack {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.col-narrow {
+    width: 15%;
+}
+
+.col-normal {
+    width: 20%;
+}
+
+.col-wide {
+    width: 25%;
+}
+
+.stack-left {
+    justify-content: flex-end;
+    gap: 60px;
+    padding-bottom: 40px;
+}
+
+.stack-mid-left {
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.stack-center {
+    justify-content: flex-end;
+}
+
+.stack-mid-right {
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.stack-right {
+    justify-content: center;
+    gap: 60px;
+    padding-bottom: 20px;
+}
+
+.text-manifesto-blk {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-rt {
+    align-items: flex-end;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.align-lf {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.italic-entry {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.heavy-line {
+    border: none;
+    height: 4px;
+    background-color: #333;
+    margin-top: 15px;
+}
+
+.right-line {
+    width: 80%;
+}
+
+.left-line {
+    width: 60%;
+}
+
+.pic-frame {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.img-fill {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sq-med {
+    height: 200px;
+}
+
+.rec-tall-top {
+    height: 350px;
+}
+
+.rec-hero-massive {
+    height: 600px;
+}
+
+.sq-large {
+    height: 280px;
+}
+
+.rec-tall-mid {
+    height: 280px;
+}
+
+@media (max-width: 1200px) {
+    .zine-masthead {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .header-decor-left,
+    .header-decor-right {
+        flex-direction: row;
+        gap: 40px;
+    }
+
+    .masonry-collage-band {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .col-stack {
+        width: 45%;
+        height: auto;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .header-decor-left,
+    .header-decor-right {
+        display: none;
+    }
+
+    .col-stack {
+        width: 100%;
+    }
+
+    .text-manifesto-blk {
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+
+    .right-line,
+    .left-line {
+        width: 50%;
+    }
+}

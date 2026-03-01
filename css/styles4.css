@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    /* En este diseño el contenido ocupa todo el alto de la pantalla */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.split-view-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+    /* Para que ambas columnas tengan la misma altura si es posible */
+}
+
+/* --- COLUMNA IZQUIERDA (IMAGEN) --- */
+.left-image-pane {
+    flex: 1;
+    /* Ocupa la mitad del espacio */
+    max-width: 50%;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 100%;
+    /* Ponemos un alto mínimo grande para simular la proporción de la foto vertical */
+    min-height: 650px;
+    object-fit: cover;
+    display: block;
+    /* La imagen en el diseño original parece no tener bordes redondeados, o son muy sutiles */
+}
+
+/* --- COLUMNA DERECHA (CONTENIDO) --- */
+.right-content-pane {
+    flex: 1;
+    /* Ocupa la otra mitad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centra verticalmente el contenido junto a la imagen */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content-wrapper-box {
+    max-width: 480px;
+    /* Limita el ancho del texto para que no quede muy estirado */
+}
+
+/* Parte superior del contenido */
+.main-header-block {
+    margin-bottom: 50px;
+}
+
+.bold-headline-text {
+    font-size: 3.5rem;
+    color: #222222;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.intro-description {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.solid-btn {
+    display: inline-block;
+    background-color: #282828;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.solid-btn:hover {
+    background-color: #000000;
+}
+
+/* Parte inferior del contenido (Lista Numerada) */
+.numbered-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Espacio entre el item 01 y el 02 */
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feature-digit {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #999999;
+    /* Gris medio para los números */
+}
+
+.feature-text {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 900px) {
+    body {
+        padding: 20px;
+    }
+
+    .split-view-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .left-image-pane {
+        max-width: 100%;
+        order: -1;
+        /* Mantiene la imagen arriba en móviles */
+    }
+
+    .cover-photo {
+        min-height: 400px;
+    }
+
+    .right-content-pane {
+        padding-top: 0;
+    }
+
+    .bold-headline-text {
+        font-size: 2.5rem;
+    }
+}

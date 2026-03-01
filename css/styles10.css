@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* Fondo oscuro casi negro-verdoso sutil como en la imagen */
+    background-color: #2A2C2B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 40px;
+    overflow-x: hidden;
+}
+
+.mosaic-gallery-layout {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    /* Separación amplia entre texto y fotos */
+}
+
+/* --- BLOQUE IZQUIERDO: TEXTO --- */
+.copy-display-panel {
+    flex: 1;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Título con 3 colores distintos */
+.tri-color-heading {
+    font-weight: 800;
+    font-size: 4.5rem;
+    /* Letras muy grandes y apretadas */
+    line-height: 1.1;
+    letter-spacing: -2px;
+    /* Letras juntas */
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    /* Asegura que cada palabra vaya en su línea */
+}
+
+.color-word {
+    display: block;
+    /* Para que respeten el salto de línea y el margen */
+}
+
+/* Colores exactos extraídos de la imagen */
+.hue-pink {
+    color: #f29c9c;
+}
+
+/* Design. */
+.hue-blue {
+    color: #83b6cb;
+}
+
+/* Create. */
+.hue-teal {
+    color: #4dbc96;
+}
+
+/* Inspire. */
+
+
+/* Texto descriptivo */
+.panel-body-text {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    /* Gris clarito, casi blanco */
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Botón Blanco */
+.btn-bright-white {
+    display: inline-block;
+    align-self: flex-start;
+    /* Evita que ocupe todo el ancho */
+    background-color: #ffffff;
+    color: #2A2C2B;
+    /* Letra color fondo */
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    /* Píldora */
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-bright-white:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* --- BLOQUE DERECHO: GRID 4x4 --- */
+.visual-grid-matrix {
+    flex: 1;
+    display: grid;
+    /* 4 columnas de ancho igual */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 filas de alto igual */
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px;
+    /* Separación entre cada cuadrito */
+    /* Para asegurar que sea un cuadrado perfecto en base a su ancho */
+    aspect-ratio: 1 / 1;
+    max-width: 600px;
+}
+
+.matrix-cell {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    /* Bordes muy redondeados (squircle style) */
+    overflow: hidden;
+    /* Sombras muy sutiles para darle algo de profundidad si la imagen es plana */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.matrix-img:hover {
+    transform: scale(1.05);
+    /* Efecto elegante al pasar el cursor */
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1100px) {
+    .mosaic-gallery-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .copy-display-panel {
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .visual-grid-matrix {
+        width: 100%;
+        max-width: 500px;
+        /* Evitamos que crezca demasiado en tabletas */
+    }
+
+    .tri-color-heading {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    /* En celulares muy pequeños, bajamos la grid a 2x8 para que no se vean enanas las fotos */
+    .visual-grid-matrix {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        aspect-ratio: auto;
+    }
+
+    .matrix-cell {
+        aspect-ratio: 1 / 1;
+        /* Forzamos que cada celda siga siendo cuadrada */
+    }
+
+    .tri-color-heading {
+        font-size: 2.8rem;
+    }
+}

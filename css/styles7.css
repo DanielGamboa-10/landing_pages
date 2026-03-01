@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 80px 40px;
+}
+
+.express-layout {
+    max-width: 1300px;
+    /* Un poco más ancho para acomodar 4 columnas sin apretarse */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* --- CABECERA --- */
+.express-header {
+    width: 100%;
+}
+
+.express-title {
+    font-size: 3.5rem;
+    color: #222222;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+/* --- CUADRÍCULA DE 4 COLUMNAS --- */
+.four-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.step-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Parte superior de la tarjeta (texto y número) */
+.step-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step-index {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #b0b0b0;
+    /* Gris medio/claro */
+}
+
+.step-summary {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* Contenedor de la Imagen con Texto Superpuesto */
+.step-media-box {
+    position: relative;
+    /* Clave para superponer contenido dentro */
+    width: 100%;
+    border-radius: 16px;
+    /* Bordes redondeados pronunciados */
+    overflow: hidden;
+    /* Para que la imagen respete los bordes */
+    /* Calculamos una proporción más vertical que cuadrada */
+    aspect-ratio: 4 / 5;
+}
+
+.step-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenido oscuro sobre la imagen */
+.media-overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Añadimos un gradiente desde abajo (oscuro) hacia arriba (transparente) */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 40px 20px 20px 20px;
+    /* Padding extra arriba para el gradiente */
+    color: #ffffff;
+    /* Letras blancas para contrastar con el oscurecido */
+}
+
+.overlay-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.overlay-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0.85;
+    /* Un poco translúcido el párrafo para jerarquía */
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1100px) {
+    .four-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+    .four-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .express-title {
+        font-size: 2.8rem;
+    }
+}

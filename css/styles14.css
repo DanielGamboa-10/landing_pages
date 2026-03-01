@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Prevenir scroll horizontal por elementos inclinados */
+    padding: 40px;
+}
+
+.music-promo-layout {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+
+/* =========================================
+   1. BLOQUE IZQUIERDO: TEXTOS 
+========================================= */
+.info-sidebar {
+    flex: 1;
+    max-width: 550px;
+    z-index: 5;
+    /* Por encima de elementos de fondo */
+    padding-top: 40px;
+    /* Bajar un poco para alinear mejor visualmente */
+}
+
+/* El título marrón súper oscuro y súper grueso */
+.bold-campaign-title {
+    font-weight: 900;
+    font-size: 3.8rem;
+    color: #3E2C1E;
+    /* Marrón chocolate oscuro */
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 30px;
+}
+
+/* Párrafo gris pardo */
+.description-text {
+    font-size: 1.15rem;
+    color: #6A6059;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.yellow-action-btn {
+    display: inline-block;
+    background-color: #FDE08B;
+    /* Amarillo pastel exacto a tu imagen */
+    color: #3E2C1E;
+    /* Letra oscura */
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    /* Bordes suaves de pastilla */
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-bottom: 60px;
+}
+
+.yellow-action-btn:hover {
+    background-color: #fce8a6;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   2. TARJETA DE ESTADÍSTICAS (Abajo)
+========================================= */
+.stats-dark-board {
+    background-color: #4A3B32;
+    /* Marrón oscuro mate */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stat-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-val {
+    font-size: 1.6rem;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+/* La rayita blanca debajo del número */
+.stat-line {
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    border: none;
+    margin: 15px 0;
+}
+
+.stat-lbl {
+    font-size: 0.85rem;
+    color: #D1CAC5;
+    /* Gris clarito terroso */
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   3. BLOQUE DERECHO: COLLAGE INCLINADO
+========================================= */
+.tilted-collage-area {
+    flex: 1;
+    position: relative;
+    /* Un alto fijo ayuda con los absolutos interiores */
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjetas rectangulares de fondo */
+.bg-card {
+    position: absolute;
+    width: 350px;
+    height: 450px;
+    transform-origin: center;
+}
+
+.dark-tilt-card {
+    background-color: #3A322C;
+    /* Marrón oscuro casi negro */
+    /* Ángulo de unos 20 grados a la derecha */
+    transform: rotate(20deg) translate(80px, 40px);
+    z-index: 1;
+}
+
+.yellow-tilt-card {
+    background-color: #F8DA81;
+    /* Amarillo pastel de la imagen */
+    /* Sin rotar, se ve recta en tu referencia */
+    /* Posicionada ligeramente descentrada arriba */
+    top: 50px;
+    right: 70px;
+    width: 380px;
+    height: 480px;
+    z-index: 2;
+    overflow: hidden;
+    /* Para que el corazón no se salga si lo empujo mucho */
+}
+
+/* El corazón gigante pintado en la tarjeta amarilla */
+.giant-heart-icon {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 300px;
+    height: 300px;
+    /* Sombrita idéntica a la que sale bajo el corazón en tu imagen */
+    filter: drop-shadow(15px 15px 0px rgba(0, 0, 0, 0.15));
+}
+
+
+/* =========================================
+   4. MOCKUP DE TELÉFONO TIPO IPHONE CSS 
+========================================= */
+/* Este div es el cuerpo negro del teléfono */
+.smartphone-mockup {
+    position: absolute;
+    /* Superpuesto a todo */
+    z-index: 10;
+    width: 250px;
+    height: 520px;
+    background-color: #1c1c1c;
+    /* Borde y cuerpo de chasis color oscuro */
+    border-radius: 40px;
+    /* Bordes característicos de iPhone */
+    /* Box shadow para darle 3D mas realista a la carcasa */
+    box-shadow:
+        -5px 5px 10px rgba(0, 0, 0, 0.4),
+        /* Sombra pegada trasera */
+        inset -3px 3px 5px rgba(255, 255, 255, 0.2);
+    /* Brilito del marco */
+    padding: 10px;
+    /* Simula los bordes "Bezel" de la pantalla */
+
+    /* El truco rey: Inclinamos el cel a la izquierda igual que en tu foto */
+    transform: rotate(-30deg) translate(40px, 80px);
+}
+
+/* La cámara (notch) arriba de la pantalla que tienen todos los celulalares */
+.smartphone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 25px;
+    background-color: #1c1c1c;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 20;
+    /* Sobre la pantalla */
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    /* Sigue las curvas del aparato */
+    overflow: hidden;
+    /* Corta la imagen de la pantalla para que no se salga */
+    background-color: #000;
+}
+
+.app-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Llenar pantalla completa */
+}
+
+
+/* =========================================
+   5. ESTRELLAS DECORATIVAS (Absolute)
+========================================= */
+.abstract-star {
+    position: absolute;
+}
+
+/* Estrella oscura 5 puntas arriba izq */
+.star-brown-top {
+    top: 50px;
+    left: -20px;
+    /* Sale por fuera del collage al espacio del texto */
+    width: 120px;
+    height: 120px;
+    z-index: 5;
+}
+
+/* Destello blanco 4 puntas */
+.star-white-right {
+    top: 80px;
+    right: 80px;
+    /* Sobre la tarjeta amarilla */
+    width: 80px;
+    height: 80px;
+    z-index: 8;
+}
+
+/* Destello gris 4 puntas */
+.star-grey-mid {
+    top: 250px;
+    right: -40px;
+    /* Borde derecho negro */
+    width: 120px;
+    height: 120px;
+    z-index: 3;
+}
+
+/* Asterisco amarillo muchas puntas */
+.star-yellow-bottom {
+    bottom: 20px;
+    right: 0px;
+    width: 130px;
+    height: 130px;
+    z-index: 15;
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1100px) {
+    .music-promo-layout {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .info-sidebar {
+        max-width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stats-dark-board {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    /* Redimensionar collage general para móviles para evitar scroll enorme */
+    .tilted-collage-area {
+        transform: scale(0.75);
+        transform-origin: top center;
+        width: 100%;
+    }
+}

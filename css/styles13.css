@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* El fondo tiene un difuminado espectacular de 3 colores: Blanco verdoso, Azul claro y Mantequilla/Amarillo */
+    /* Logramos esto con múltiples radial-gradients entrelazados */
+    background: #ffffff;
+    background-image:
+        radial-gradient(circle at 60% 80%, rgba(253, 237, 185, 0.8) 0%, transparent 50%),
+        /* Amarillo abajo */
+        radial-gradient(circle at 40% 60%, rgba(199, 210, 255, 0.7) 0%, transparent 40%),
+        /* Azul medio */
+        radial-gradient(circle at 50% 20%, rgba(210, 250, 235, 0.6) 0%, transparent 50%);
+    /* Verde agua arriba */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #2c2c2c;
+}
+
+.dreamy-canvas-layout {
+    position: relative;
+    max-width: 1400px;
+    width: 100%;
+    /* Alto fijo para poder entrelazar los SVG en coordenadas específicas detrás de todo */
+    height: 900px;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+}
+
+/* =========================================
+   1. COLUMNAS DE CONTENIDO Y ESTRUCTURA
+========================================= */
+
+/* Columna Izquierda */
+.side-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 400px;
+    z-index: 5;
+}
+
+.left-focus {
+    align-items: flex-start;
+}
+
+.right-focus {
+    /* La derecha tiene la imagen arriba y el texto abajo */
+    justify-content: flex-start;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+/* Columna Central (Textos) */
+.center-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    /* El texto siempre arriba */
+}
+
+/* =========================================
+   2. TIPOGRAFÍAS Y BLOQUES DE TEXTO
+========================================= */
+
+/* Título Serif Mega Elegante Central */
+.elegant-mega-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    /* Tamaño gigante */
+    color: #222521;
+    /* Gris súper oscuro */
+    font-weight: 400;
+    /* Fino/Elegante */
+    line-height: 1.05;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.center-paragraph {
+    font-size: 1.15rem;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+
+/* Textos Pequeños de las Esquinas */
+.mini-text-block {
+    max-width: 320px;
+}
+
+.number-tag {
+    display: block;
+    font-size: 1.1rem;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.mini-text-block p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.top-left-text {
+    padding-top: 20px;
+}
+
+.bottom-right-text {
+    padding-top: 40px;
+}
+
+/* Botón Central */
+.btn-dark-pill {
+    display: inline-block;
+    background-color: #2A2A2A;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 45px;
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-dark-pill:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   3. IMÁGENES EN FORMA DE ARCO / LÁPIDA
+========================================= */
+.arch-photo-container {
+    width: 340px;
+    height: 480px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Sombra suave para que flote sobre el gradiente */
+}
+
+/* Arco izquierda (Curva total arriba, base plana abajo) */
+.left-arch {
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    background-color: #DFB25D;
+    /* Fondo mostaza de tu foto por si el recorte vuela */
+    /* Lo empujamos hacia arriba para que no toque la base del layout */
+    margin-bottom: 20px;
+}
+
+/* Arco derecha (Curva total arriba, base plana abajo) */
+.right-arch {
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    background-color: #A9CBE1;
+    /* Celeste por si acaso */
+}
+
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   4. DECORACIONES GEOMÉTRICAS FLUCTUANTES (SVGs)
+========================================= */
+.geo-ornament {
+    position: absolute;
+    z-index: 1;
+    /* Al fondo, detrás de las fotos pero sobre el color difuminado */
+}
+
+/* Estrella azul clara arriba izquierda */
+.star-blue-top {
+    top: 200px;
+    left: 80px;
+    width: 120px;
+    height: 120px;
+}
+
+/* Estrella Diamante Hueca Grande (Izquierda Medio) */
+.diamond-burst-left {
+    top: 300px;
+    left: 230px;
+    width: 200px;
+    height: 200px;
+}
+
+/* Estrella Diamante Hueca Pequeña (Abajo Centro/Derecha) */
+.diamond-burst-right {
+    bottom: 200px;
+    right: 350px;
+    width: 140px;
+    height: 140px;
+}
+
+/* Estrella asoleada dorada (Abajo Derecha) */
+.sun-burst-gold {
+    bottom: 120px;
+    right: 170px;
+    width: 150px;
+    height: 150px;
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1200px) {
+    .dreamy-canvas-layout {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 60px;
+        /* Escalamos ligeramente todo si no cabe */
+    }
+
+    .side-col,
+    .center-col {
+        width: 100%;
+        max-width: 500px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-focus {
+        flex-direction: column-reverse;
+        /* El texto va abajo en móvil siempre */
+    }
+
+    .mini-text-block {
+        margin: 20px 0;
+    }
+
+    .elegant-mega-title {
+        font-size: 4rem;
+    }
+
+    /* En iPad y móviles, las decoraciones de fondo estorban y se sobreponen mal */
+    .geo-ornament {
+        display: none;
+    }
+}

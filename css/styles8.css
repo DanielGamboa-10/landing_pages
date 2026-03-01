@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* El color de fondo rojizo/ladrillo de la imagen */
+    background-color: #9c2811;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 40px;
+    overflow-x: hidden;
+}
+
+.hero-solid-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- LADO IZQUIERDO: IMAGEN PURA --- */
+.strict-visual-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Alinea la foto a la base del contenedor para que parezca que nace de abajo */
+    height: 100vh;
+    /* Todo el alto de la pantalla */
+    max-width: 50%;
+}
+
+.base-portrait {
+    height: 90vh;
+    /* La imagen ocupa casi toda la pantalla hacia arriba */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    /* Para que la imagen quede perfecta sin recortes */
+    object-position: bottom;
+    /* Se "pega" al límite inferior */
+    /* Este filtro la hace en blanco y negro y contrastada, igual que en tu foto */
+    filter: grayscale(100%) contrast(1.2) brightness(0.85);
+}
+
+/* --- LADO DERECHO: TEXTOS --- */
+.align-content-box {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    /* Separación de la imagen */
+}
+
+/* El título ahora está perfectamente alineado a la izquierda junto con su párrafo */
+.strong-impact-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 5rem;
+    /* Un poco más grande para el impacto visual */
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.description-text-light {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    /* Blanco ligeramente transparente */
+    line-height: 1.6;
+    margin-bottom: 45px;
+}
+
+/* Botón Amarillo */
+.round-yellow-btn {
+    display: inline-block;
+    align-self: flex-start;
+    /* Evita que el botón se estire a todo lo ancho, alineado izquierda */
+    background-color: #e2bb44;
+    /* Amarillo del botón */
+    color: #000000;
+    text-decoration: none;
+    padding: 16px 45px;
+    border-radius: 40px;
+    /* Forma de píldora redondeada */
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.round-yellow-btn:hover {
+    background-color: #c9a435;
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    body {
+        height: auto;
+    }
+
+    .hero-solid-container {
+        flex-direction: column;
+    }
+
+    .strict-visual-box {
+        height: 50vh;
+        max-width: 100%;
+        order: 2;
+        /* Para que en móvil el texto salga arriba y la foto abajo */
+    }
+
+    .base-portrait {
+        height: 100%;
+    }
+
+    .align-content-box {
+        padding-left: 0;
+        padding-top: 60px;
+        order: 1;
+        align-items: center;
+        /* En móvil sí centramos el todo para que no se vea raro */
+        text-align: center;
+    }
+
+    .strong-impact-title {
+        font-size: 3.5rem;
+    }
+
+    .round-yellow-btn {
+        align-self: center;
+    }
+}

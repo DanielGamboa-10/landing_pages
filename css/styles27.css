@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3ecec;
+}
+
+.yc-main-view {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(/image/bigyoga.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+}
+
+.yc-content-wrapper {
+    max-width: 1250px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    z-index: 2;
+}
+
+.yc-glass-panel {
+    background: rgba(49, 44, 44, 0.35);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(197, 164, 164, 0.4);
+    border-radius: 35px;
+    padding: 60px 50px;
+    max-width: 520px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.yc-top-label {
+    font-size: 0.9rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.yc-diamond-icon {
+    font-size: 0.85rem;
+}
+
+.yc-heading-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    letter-spacing: -0.02em;
+}
+
+.yc-body-text {
+    font-size: 1.1rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 45px;
+    font-weight: 400;
+}
+
+.yc-register-btn {
+    background-color: #5a9fff;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 8px 25px rgba(90, 159, 255, 0.3);
+}
+
+.yc-register-btn:hover {
+    background-color: #468bf0;
+    transform: translateY(-2px);
+}
+
+.yc-side-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.yc-gallery-pic {
+    width: 280px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+    .yc-content-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 40px;
+    }
+    
+    .yc-side-gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .yc-gallery-pic {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .yc-main-view {
+        padding: 20px;
+    }
+
+    .yc-glass-panel {
+        padding: 40px 30px;
+    }
+    
+    .yc-heading-title {
+        font-size: 2.8rem;
+    }
+    
+    .yc-gallery-pic {
+        width: 100%;
+        max-width: 320px;
+        height: 220px;
+    }
+}

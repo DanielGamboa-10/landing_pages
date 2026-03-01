@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.travel-wrapper {
+    width: 100%;
+    padding-bottom: 60px; /* Space for the overlapping bottom bar */
+}
+
+.travel-hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background-image: url('/image/crucerogrande.png');
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dark gradient overlay for text readability */
+.travel-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    z-index: 1;
+}
+
+.travel-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.travel-content-box {
+    max-width: 600px;
+}
+
+.travel-main-headline {
+    font-size: 3.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.travel-desc-text {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.travel-btn-primary {
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 36px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.travel-btn-primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+/* Categories Bar at the bottom */
+.travel-categories-bar {
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1100px;
+    height: 90px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.travel-cat-box {
+    flex: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.travel-cat-box:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* Gradient overlay on each category photo so text is readable */
+.travel-cat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+    pointer-events: none;
+}
+
+.travel-cat-label {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Reponsive behavior */
+@media (max-width: 992px) {
+    .travel-main-headline {
+        font-size: 3rem;
+    }
+    
+    .travel-categories-bar {
+        height: 70px;
+        bottom: -35px;
+    }
+    
+    .travel-cat-label {
+        font-size: 0.9rem;
+        padding-bottom: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .travel-hero-banner {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .travel-main-headline {
+        font-size: 2.4rem;
+    }
+
+    .travel-desc-text {
+        font-size: 0.95rem;
+    }
+
+    .travel-categories-bar {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        flex-wrap: wrap;
+        border-radius: 0;
+        box-shadow: none;
+        margin-top: 20px;
+    }
+    
+    .travel-cat-box {
+        flex-basis: 33.333%;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .travel-cat-box {
+        flex-basis: 50%;
+    }
+}

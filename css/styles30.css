@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+.pet-landing-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.pet-hero-section {
+    background-color: #e5b248; /* Color mostaza exacto */
+    position: relative;
+    padding: 85px 0 160px 0; /* Espacio extra abajo para que la tarjeta superponga */
+    overflow: hidden;
+}
+
+.pet-paw-bg {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.pet-paw-top {
+    top: -120px;
+    right: -100px;
+    transform: rotate(20deg);
+}
+
+.pet-paw-bottom {
+    bottom: -80px;
+    left: 80px;
+    transform: rotate(15deg);
+    width: 320px;
+    height: 320px;
+}
+
+.pet-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.pet-text-content {
+    flex: 1;
+    max-width: 530px;
+}
+
+.pet-lead-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    letter-spacing: -0.01em;
+}
+
+.pet-lead-desc {
+    font-size: 1.15rem;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 45px;
+    opacity: 0.95;
+}
+
+.pet-cta-button {
+    background-color: #7ab3e1; /* Azul celeste exacto */
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(122, 179, 225, 0.4);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.pet-cta-button:hover {
+    background-color: #6a9ec8;
+    transform: translateY(-2px);
+}
+
+.pet-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 550px;
+}
+
+.pet-main-dog {
+    position: absolute;
+    bottom: -160px; /* Hace que el perro sobrepase el borde inferior */
+    right: 20px;
+    height: 120%;
+    width: auto;
+    object-fit: contain;
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.15));
+}
+
+.pet-badge-wrapper {
+    position: absolute;
+    top: -10px;
+    left: 80px;
+    width: 160px;
+    height: 160px;
+    z-index: 4;
+    animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.pet-asterisk-frame {
+    position: absolute;
+    bottom: 50px;
+    right: -10px;
+    width: 155px;
+    height: 155px;
+    z-index: 5;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Recorte de cruz gruesa para simular esa textura de estrella ancha */
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+    transform: rotate(15deg);
+}
+
+.pet-small-dog {
+    width: 150%;
+    height: 150%;
+    object-fit: cover;
+    transform: rotate(-15deg) translate(-5px, 5px); /* Contrarrestar rotación para que el perrito esté recto */
+}
+
+/* ---------------- BOTTOM CARDS ---------------- */
+.pet-cards-section {
+    background-color: #ffffff;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.pet-cards-board {
+    background-color: #efefef;
+    border-radius: 25px;
+    max-width: 1200px;
+    width: 90%;
+    margin-top: -65px; /* Crea el efecto de sobreposición */
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    flex-wrap: wrap;       
+}
+
+.pet-item-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.pet-item-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.pet-bg-orange { background-color: #e57e3f; }
+.pet-bg-cyan { background-color: #92d3da; }
+.pet-bg-blue { background-color: #036aa2; }
+
+.pet-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+    mix-blend-mode: multiply; /* Para los fondos sólidos de las fotos de los animales que coincidan con la caja */
+}
+
+.pet-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pet-item-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.pet-item-info p {
+    font-size: 0.82rem;
+    color: #5d5d5d;
+    line-height: 1.4;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1100px) {
+    .pet-hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pet-text-content {
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pet-badge-wrapper {
+        left: 0;
+        top: -60px;
+    }
+    
+    .pet-image-container {
+        width: 100%;
+        height: 500px;
+        justify-content: center;
+    }
+    
+    .pet-main-dog {
+        right: auto;
+    }
+    
+    .pet-cards-board {
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .pet-lead-title {
+        font-size: 3rem;
+    }
+
+    .pet-paw-bg {
+        display: none; /* Simplificar visuales en móviles pequeños */
+    }
+    
+    .pet-image-container {
+        height: 380px;
+    }
+    
+    .pet-asterisk-frame {
+        width: 110px;
+        height: 110px;
+        bottom: 20px;
+    }
+}
